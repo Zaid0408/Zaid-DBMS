@@ -1,0 +1,64 @@
+create database Boats;
+use Boats;
+create table sailor(sid int not null, sname varchar(30) not null, rating int not null, age real not null);
+create table boat(bid int not null, bname varchar(30) not null, color varchar(20) not null);
+create table reserves(sid int not null, bid int not null, day date not null);
+
+insert into sailor(sid, sname, rating, age) values('1', 'surag', '4', '15.5');
+insert into sailor(sid, sname, rating, age) values('2', 'yogesh', '3', '21.3');
+insert into sailor(sid, sname, rating, age) values('3', 'sonal', '5', '23.6');
+insert into sailor(sid, sname, rating, age) values('4', 'tanya', '3', '18.5');
+insert into sailor(sid, sname, rating, age) values('5', 'swayam', '6', '12.5');
+insert into sailor(sid, sname, rating, age) values('6', 'swaroop', '1', '20');
+insert into sailor(sid, sname, rating, age) values('7', 'zaid', '10', '27');
+insert into sailor(sid, sname, rating, age) values('8', 'sri', '8', '20');
+
+delete from sailor where sid='1';
+delete from sailor where sid='2';
+
+
+
+insert into boat(bid, bname, color) values('1', 'surag', 'black');
+insert into boat(bid, bname, color) values('2', 'swaroop', 'red');
+insert into boat(bid, bname, color) values('3', 'zaid', 'red');
+insert into boat(bid, bname, color) values('4', 'sri', 'blue');
+insert into boat(bid, bname, color) values('5', 'sonal', 'red');
+
+
+insert into reserves(sid, bid, day) values('3', '7', '2002-10-09');
+insert into reserves(sid, bid, day) values('4', '8', '2002-10-19');
+insert into reserves(sid, bid, day) values('5', '221', '2002-12-19');
+insert into reserves(sid, bid, day) values('7', '3', '2002-10-09');
+insert into reserves(sid, bid, day) values('8', '4', '2002-10-09');
+select * from sailor;
+select Zaid,age from sailor;
+alter table sailor change column sname  Zaid varchar(50);
+select * from boat;
+select * from reserves;
+select sid,Zaid,rating from sailor where rating>7;
+alter table sailor ADD phone_num varchar(255);
+alter table sailor drop column phone_num;
+-- alter table sailor
+-- add constraint unique_sid unique(sid);
+-- insert into sailor(phone_num)
+-- values
+-- 	('1234567890'),
+--     ('0987654321'),
+--     ('9876543210'),
+--     ('9899765543'),
+--     ('8796775432'),
+--     ('7767543309');
+-- CREATE TABLE Students (
+--     USN varchar(255) NOT NULL,
+--     LastName varchar(255) NOT NULL,
+--     FirstName varchar(255) NOT NULL,
+--     Age int NOT NULL,
+--     PRIMARY KEY (USN)
+-- );
+-- insert into Students(USN,LastName,FirstName,Age)
+-- values
+-- 	('IS212','Hasn','Zaid','20'),
+--     ('IS211','Haan','Zai','19'),
+--     ('IS202','Hsan','Zid','17'),
+--     ('IS210','asan','aid','18');
+-- select USN,LastName,Age from Students where Age>18;
